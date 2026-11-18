@@ -24,7 +24,12 @@ jobs:
       - name: Test the code
         run: |
           npm test -- --coverage --testLocationInResults
-
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm test -- --coverage --testLocationInResults
       - name: Publish test and coverage report
         uses: mridang/action-test-reporter@v1
         with:
