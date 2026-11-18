@@ -21,7 +21,6 @@ jobs:
           npm install
           zip -r app.zip . -x ".git/*" ".github/*"
 
-      - uses: actions/checkout@v4
       - run: npm ci
       - run: npm test -- --coverage --testLocationInResults
       - name: Publish test and coverage report
