@@ -28,5 +28,6 @@ jobs:
         with:
           name: Unit tests
           results-path: ./.out/junit.xml
-          coverage-path: coverage/lcov.info
+          coverage-path: coverage/
+          coverage-file: lcov.info
 
