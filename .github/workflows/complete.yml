@@ -1,20 +1,25 @@
+name: Build Example
 
-name: Dependencies Example
 on:
-  workflow_dispatch: 
+  push:
 
 jobs:
-  Dependencies_Example:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
+
       - name: Build the code
-        run: zip -r build.zip .
+        run: |
+          npm install
+          zip -r app.zip . -x ".git/*" ".github/*"
+
       - name: Test the code
-        run: npm test app.js
-    
+        run: npm test
