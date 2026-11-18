@@ -23,3 +23,13 @@ jobs:
 
       - name: Test the code
         run: npm test
+
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm test -- --coverage --testLocationInResults
+      - name: Publish test and coverage report
+        uses: mridang/action-test-reporter@v1
+        with:
+          name: Unit tests
+          results-path: ./.out/junit.xml
+          coverage-path: coverage/lcov.info
