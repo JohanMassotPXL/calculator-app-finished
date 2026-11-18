@@ -13,5 +13,5 @@ jobs:
         with:
           node-version: '20'
       - name: Build the code
-        run: zip -r build.zip -r
+        run: zip -r build.zip .
     
